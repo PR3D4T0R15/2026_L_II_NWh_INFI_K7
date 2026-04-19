@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-.PHONY: init deps lint run test docker_build
+.PHONY: init deps lint run test docker_build docker_push
 
 init:
 	python3 -m venv .venv
@@ -15,3 +15,7 @@ test:
 	PYTHONPATH=. pytest --verbose -s
 docker_build:
 	docker build -t hello-world-printer:latest .
+docker_push:
+	docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASS
+	docker tag hello-world-printer:latest $DOCKERHUB_USER/hello-world-printer:latest
+	docker push $DOCKERHUB_USER/hello-world-printer:latest
