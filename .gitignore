@@ -1,0 +1,8 @@
+# python venv
+.venv/
+
+# byte-code
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
