@@ -16,6 +16,6 @@ test:
 docker_build:
 	docker build -t hello-world-printer:latest .
 docker_push:
-	docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASS
-	docker tag hello-world-printer:latest $DOCKERHUB_USER/hello-world-printer:latest
-	docker push $DOCKERHUB_USER/hello-world-printer:latest
+	docker login -u ${DOCKERHUB_USER} -p ${DOCKERHUB_PASS}
+	docker tag hello-world-printer:latest ${DOCKERHUB_USER}/hello-world-printer:latest
+	docker push ${DOCKERHUB_USER}/hello-world-printer:latest
